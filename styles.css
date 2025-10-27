@@ -45,7 +45,7 @@ body {
 }
 
 .nav-logo h2 {
-    color: #3b82f6;
+    color: #334155;
     font-weight: 700;
     font-size: 1.5rem;
 }
@@ -58,7 +58,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #cbd5e1;
+    color: #334155;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;

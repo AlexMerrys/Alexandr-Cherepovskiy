@@ -212,23 +212,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.profile-avatar {
+.profile-avatar{
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    object-fit: cover;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto 1rem;
     font-size: 3rem;
-    color: white;
     overflow: hidden;
-}
-
-.profile-avatar img {
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
 }
 
 .profile-info h3 {

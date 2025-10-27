@@ -21,5 +21,4 @@
 
 
 **Сайт адаптирован под мобильные устройства**
-![photo_2025-10-27_23-01-31](https://github.com/user-attachments/assets/c588db93-413d-4689-ad0c-1f7f541719ad)
 

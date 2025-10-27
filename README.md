@@ -19,6 +19,7 @@
 **И другие блоки, посмотрите своими глазами!**
 <a href="https://alexmerrys.github.io/Alexandr-Cherepovskiy/" target="blank_">Ссылка на сайт</a>
 
+
 **Сайт адаптирован под мобильные устройства**
-<img alt="2025-10-27_22-50-30" src="[https://github.com/user-attachments/assets/6a713424-20cd-42b9-b83d-e8b19e4949c4](https://github.com/user-attachments/assets/1ebf1069-5ec1-4142-9e70-139381378df3)" />
+![photo_2025-10-27_23-01-31](https://github.com/user-attachments/assets/c588db93-413d-4689-ad0c-1f7f541719ad)
 

@@ -108,7 +108,7 @@ if (contactForm) {
         }
         
         // Имитация отправки
-        showNotification('Сообщение отправлено! Я свяжусь с вами в ближайшее время.', 'success');
+        showNotification('Эта форма не работает! API в проект с открытым исходным кодом не ставлю :)', 'success');
         contactForm.reset();
     });
 }
@@ -269,14 +269,112 @@ fadeInElements.forEach(el => {
 document.querySelectorAll('.portfolio-links a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        const text = link.textContent.trim();
-        if (text === 'Демо') {
-            showNotification('Демо-версия будет доступна в ближайшее время', 'info');
-        } else if (text === 'Код') {
-            showNotification('Исходный код будет доступен на GitHub', 'info');
-        }
+        const href = link.getAttribute('href');
+        if (href === '#home') {
+            showNotification('Вы уже тут :)))))', 'info');
+        } else if (href === '#tests') {
+            showNotification('Пока не добавил код', 'info');
+        } 
     });
 });
+
+const parserDemoBtn = document.querySelector('[href="#parser"]'); // при нажатии на кнопку "Демо" открывается модальное окно с видео
+
+if (parserDemoBtn) {
+    parserDemoBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Создать модальное окно
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s ease;
+        `;
+        
+        const video = document.createElement('video');
+        video.src = 'img/parser.MOV';
+        video.controls = true;
+        video.autoplay = true;
+        video.style.cssText = `
+            max-width: 80%; 
+            max-height: 80%; 
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        `;
+        
+        // Кнопка закрытия
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '×';
+        closeBtn.style.cssText = `
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        `;
+        
+        modal.appendChild(video);
+        modal.appendChild(closeBtn);
+        document.body.appendChild(modal);
+        
+        // Анимация появления
+        requestAnimationFrame(() => {
+            modal.style.background = 'rgba(0,0,0,0.8)';
+            modal.style.opacity = '1';
+            video.style.transform = 'scale(1)';
+        });
+        
+        // Закрытие модального окна
+        function closeModal() {
+            modal.style.opacity = '0';
+            video.style.transform = 'scale(0.8)';
+            modal.style.background = 'rgba(0,0,0,0)';
+            
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    document.body.removeChild(modal);
+                }
+            }, 300);
+        }
+        
+        // Обработчики закрытия
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Закрытие по Escape
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+    });
+}
 
 // Инициализация всех функций при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {

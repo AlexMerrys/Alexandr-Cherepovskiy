@@ -274,7 +274,11 @@ document.querySelectorAll('.portfolio-links a').forEach(link => {
             showNotification('Вы уже тут :)))))', 'info');
         } else if (href === '#tests') {
             showNotification('Пока не добавил код', 'info');
-        } 
+        } else if (href === 'https://rutube.ru/video/0eed8a640bac5b3ef82f4b6d402fdaad/') {
+            showNotification('Видео демо тяжелое, оно доступно на Рутубе', 'info');
+        } else if (href === 'https://rutube.ru/video/a527371e64996b9c64fe637cf12a19bd/') {
+            showNotification('Видео демо тяжелое, оно доступно на Рутубе', 'info');
+        }
     });
 });
 
